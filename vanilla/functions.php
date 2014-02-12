@@ -8,8 +8,6 @@ remove_action('wp_head', 'wp_generator'); // Remove detalhes da instalação do 
 add_action('wp_enqueue_scripts', 'vanilla_load_styles');
 function vanilla_load_styles()
 {
-    if (!is_admin())
-        wp_enqueue_style('Revolution Slider CSS', get_stylesheet_directory_uri() . "/assets/css/revolution.css", array());
     wp_enqueue_style('Main CSS', get_template_directory_uri() . '/assets/css/styles.css', false, '1.0', 'all');
 }
 
