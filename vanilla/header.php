@@ -3,7 +3,7 @@
 <head>
     <meta charset="<?php bloginfo('charset'); ?>"/>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title><?php wp_title(' | ', true, 'right'); ?></title>
+    <title><?php wp_title( '|', true, 'right' ); ?></title>
     <link rel="stylesheet" type="text/css" href="<?php echo get_stylesheet_uri(); ?>"/>
     <?php wp_head(); ?>
 </head>
@@ -22,7 +22,7 @@
 
             <div class="site-search"><?php get_search_form(); ?></div>
             <nav id="menu" role="navigation">
-                <?php wp_nav_menu(array('theme_location' => 'main-menu')); ?>
+                <?php wp_nav_menu(array('theme_location' => 'primary-menu')); ?>
             </nav>
         </div>
     </header>
