@@ -30,3 +30,4 @@ Comentar a linha 58
 
 # .htaccess
 Coloque o arquivo **.htaccess** na raiz do Wordpress.
+(O conteúdo do .htaccess também é parcialmente baseado no post [Smashing Magazine](http://wp.smashingmagazine.com/2010/07/01/10-useful-wordpress-security-tweaks/))
