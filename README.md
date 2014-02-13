@@ -14,14 +14,15 @@ Vanilla foi feito com base nas melhores práticas de segurança. Old but Gold [S
 4. grunt watch
 
 # Extra
-No diretório **plugins** contém alguns plugins que considero interessantes.
+O diretório **plugins** contém alguns plugins que considero interessantes.
+- Block Bad Queries (Plugin description: What this code does is pretty simple. It checks for excessively long request strings (more than 255 characters) and for the presence of either the eval or base64 PHP functions in the URI. If one of these conditions is met, then the plug-in sends a 414 error to the client’s browser.)
 
 # wp-functions
 Wordpress por definição, inclui a tag **META ROBOTS** baseada na sua escolha de deixar o Site ser Indexado ou não.
 
-O Problema: É muito comum que se utilize plugins de SEO para ajudar na indexação, e dependendo da combinação das tags ROBOTS, é possível que haja conflito.
+**O Problema:** É muito comum que se utilize plugins de SEO para ajudar na indexação, e dependendo da combinação das tags ROBOTS, é possível que haja conflito.
 
-A solução:
+**A solução:**
 Comentar a linha 58
 
     remove_action('wp_head', 'noindex', 1);
