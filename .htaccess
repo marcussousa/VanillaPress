@@ -1,0 +1,35 @@
+
+# BEGIN WordPress
+<IfModule mod_rewrite.c>
+RewriteEngine On
+RewriteBase /
+RewriteRule ^index\.php$ - [L]
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule . /index.php [L]
+</IfModule>
+# END WordPress
+
+
+# BEGIN Vanilla Security
+<files wp-config.php>
+order allow,deny
+deny from all
+</files>
+
+Options +FollowSymLinks
+RewriteEngine On
+RewriteCond %{QUERY_STRING} (\<|%3C).*script.*(\>|%3E) [NC,OR]
+RewriteCond %{QUERY_STRING} GLOBALS(=|\[|\%[0-9A-Z]{0,2}) [OR]
+RewriteCond %{QUERY_STRING} _REQUEST(=|\[|\%[0-9A-Z]{0,2})
+RewriteRule ^(.*)$ index.php [F,L]
+
+RewriteEngine On
+#Replace ?mysite\.com/ with your blog url
+RewriteCond %{HTTP_REFERER} !^http://(.+\.)?mysite\.com/ [NC]
+RewriteCond %{HTTP_REFERER} !^$
+#Replace /images/nohotlink.jpg with your "don't hotlink" image url
+RewriteRule .*\.(jpe?g|gif|bmp|png)$ /images/nohotlink.jpg [L]
+
+Options -Indexes
+# END Vanilla Security
