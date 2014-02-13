@@ -1,0 +1,12 @@
+{
+  "name": "Vanilla",
+  "version": "1.0.0",
+  "description": "Vanilla é um tema minimalista, puro e com um markup bem básico. Perfeito para quem quer começar do zero usando apenas o core do Wordpress. Vanilla utiliza o Sass Bootstrap 3 como pré-processador e Grunt para gerar o CSS.",
+  "author": "Marcus Sousa",
+  "devDependencies": {
+    "grunt": "~0.4.2",
+    "grunt-contrib-sass": "~0.7.1",
+    "grunt-contrib-watch": "~0.5.3",
+    "grunt-contrib-uglify": "~0.3.2"
+  }
+}
