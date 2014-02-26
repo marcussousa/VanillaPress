@@ -44,7 +44,7 @@ module.exports = function (grunt) {
                     style: 'compressed'
                 },
                 files: {
-                    '<%= files.compiledCssPath %>styles.css': '<%= files.sassPath %>style.scss'
+                    '<%= files.compiledCssPath %>styles.css': '<%= files.sassPath %>styles.scss'
                 }
             }
         },
