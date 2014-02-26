@@ -14,20 +14,20 @@ module.exports = function (grunt) {
             },
             tests: {
                 src: [
-                    'wp-content/themes/vanilla/assets/js/components/affix.js',
-                    'wp-content/themes/vanilla/assets/js/components/alert.js',
-                    'wp-content/themes/vanilla/assets/js/components/button.js',
-                    'wp-content/themes/vanilla/assets/js/components/carousel.js',
-                    'wp-content/themes/vanilla/assets/js/components/collapse.js',
-                    'wp-content/themes/vanilla/assets/js/components/dropdown.js',
-                    'wp-content/themes/vanilla/assets/js/components/modal.js',
-                    'wp-content/themes/vanilla/assets/js/components/tooltip.js',
-                    'wp-content/themes/vanilla/assets/js/components/popover.js',
-                    'wp-content/themes/vanilla/assets/js/components/scrollspy.js',
-                    'wp-content/themes/vanilla/assets/js/components/tab.js',
-                    'wp-content/themes/vanilla/assets/js/components/transition.js'
+                    'assets/js/components/affix.js',
+                    'assets/js/components/alert.js',
+                    'assets/js/components/button.js',
+                    'assets/js/components/carousel.js',
+                    'assets/js/components/collapse.js',
+                    'assets/js/components/dropdown.js',
+                    'assets/js/components/modal.js',
+                    'assets/js/components/tooltip.js',
+                    'assets/js/components/popover.js',
+                    'assets/js/components/scrollspy.js',
+                    'assets/js/components/tab.js',
+                    'assets/js/components/transition.js'
                 ],
-                dest: 'wp-content/themes/vanilla/assets/js/components.min.js'
+                dest: 'assets/js/components.min.js'
             }
         },
 
@@ -44,7 +44,7 @@ module.exports = function (grunt) {
                     style: 'compressed'
                 },
                 files: {
-                    '<%= files.compiledCssPath %>styles.css': '<%= files.sassPath %>styles.scss'
+                    '<%= files.compiledCssPath %>styles.css': '<%= files.sassPath %>style.scss'
                 }
             }
         },
@@ -57,7 +57,7 @@ module.exports = function (grunt) {
                 tasks: ['sass']
             },
             js: {
-                files: 'wp-content/themes/vanilla/assets/js/scripts.js',
+                files: 'assets/js/scripts.js',
                 tasks: [ 'uglify' ]
             }
         }
