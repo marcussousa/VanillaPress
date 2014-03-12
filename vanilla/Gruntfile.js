@@ -41,10 +41,12 @@ module.exports = function (grunt) {
         sass: {
             dist: {
                 options: {
-                    style: 'compressed'
+                    style: 'uncompressed',
+                    lineNumbers: true
                 },
                 files: {
-                    '<%= files.compiledCssPath %>styles.css': '<%= files.sassPath %>style.scss'
+                    '<%= files.compiledCssPath %>bootstrap.css': '<%= files.sassPath %>/components/bootstrap.scss',
+                    '<%= files.compiledCssPath %>styles.css': '<%= files.sassPath %>styles.scss'
                 }
             }
         },

@@ -8,12 +8,15 @@ remove_action('wp_head', 'wp_generator'); // Remove detalhes da instalação do 
 add_action('wp_enqueue_scripts', 'vanilla_load_styles');
 function vanilla_load_styles()
 {
-    wp_enqueue_style('Main CSS', get_template_directory_uri() . '/assets/css/styles.css', false, '1.0', 'all');
+    wp_enqueue_style('Bootstrap', get_template_directory_uri() . '/assets/css/bootstrap.css', false, '1.0', 'all');
+    wp_enqueue_style('Main', get_template_directory_uri() . '/assets/css/styles.css', false, '1.0', 'all');
 }
 
 add_action('wp_enqueue_scripts', 'vanilla_load_scripts');
 function vanilla_load_scripts()
 {
+    
+    wp_enqueue_script('Bootstrap', get_template_directory_uri() . '/assets/js/components.min.js', array('jquery'), '1.0', true);
     wp_enqueue_script('Main Scripts', get_template_directory_uri() . '/assets/js/scripts.js', array('jquery'), '1.0', true);
 
     // Exemplo para chamar scripts de forma correta no WP
@@ -39,6 +42,33 @@ function vanilla_widgets_init()
         'after_title' => '</h3>',
     ));
 }
+
+add_action('template_redirect', 'rw_relative_urls');
+function rw_relative_urls()
+{
+    if(is_feed())
+        return;
+
+    $filters = array(
+        'post_link',       // Normal post link
+        'post_type_link',  // Custom post type link
+        'page_link',       // Page link
+        'attachment_link', // Attachment link
+        'get_shortlink',   // Shortlink
+        'post_type_archive_link',    // Post type archive link
+        'get_pagenum_link',          // Paginated link
+        'get_comments_pagenum_link', // Paginated comment link
+        'term_link',   // Term link, including category, tag
+        'search_link', // Search link
+        'day_link',   // Date archive link
+        'month_link',
+        'year_link',
+    );
+    foreach ( $filters as $filter ) {
+        add_filter( $filter, 'wp_make_link_relative' );
+    }
+}
+
 
 add_filter('nav_menu_css_class', 'special_nav_class', 10, 2);
 function special_nav_class($classes, $item)
@@ -85,5 +115,4 @@ function vanilla_wp_title($title, $sep){
     }
     return $title;
 }
-
 add_filter('wp_title', 'vanilla_wp_title', 10, 2);
